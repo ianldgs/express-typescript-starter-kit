@@ -1,0 +1,9 @@
+{
+  "name": "Express TypeScript Starter KIT",
+  "version": "1.0.0",
+  "description": "Express TypeScript Starter KIT API Docs",
+  "title": "API Docs page title",
+  "url" : "http://localhost:8080",
+  "order": [
+  ]
+}

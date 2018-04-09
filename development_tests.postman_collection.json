@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "762c7e67-0d80-4818-8e17-531ba96ec06a",
+		"name": "Starter KIT Test Development",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello World",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e2e407ea-e1fe-4713-855f-dade22325c44",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Is JSON\", () => {",
+							"    pm.response.json();",
+							"});",
+							"",
+							"pm.test(\"Hello World\", () => {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.message).to.eql('Hello World!');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Greetings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eada461b-6f56-463f-83fe-7aadd2b356f8",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Is JSON\", () => {",
+							"    pm.response.json();",
+							"});",
+							"",
+							"pm.test(\"Hello World\", () => {",
+							"    const data = pm.response.json();",
+							"    pm.expect(data.message).to.eql('Hello, Ian!');",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/greetings/Ian",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"greetings",
+						"Ian"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not Found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "51a2e6af-c667-4d17-b5e2-935ba7f48c11",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 404\", () => {",
+							"    pm.response.to.have.status(404);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/not-found",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"not-found"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8b992f0b-4f51-4c42-b112-b9411733d982",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 500\", () => {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/error",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"error"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Timeout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8f2cd87f-8bf7-4778-b305-344b0527203b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 503\", () => {",
+							"    pm.response.to.have.status(503);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/timeout",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"timeout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "123456",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	}
+}
