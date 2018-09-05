@@ -1,5 +1,5 @@
-//here define custom Errors
-//that can help with knowing what happened on the catch block
+// here, define custom Errors
+// they can help with knowing what happened on the catch block
 
 export class CustomError extends Error {
     constructor() {

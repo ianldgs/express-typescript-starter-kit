@@ -7,6 +7,7 @@
 
 * Express.js as the web framework.
 * ES2017 support (Node 8.9.4 and TypeScript)
+* Code linting with tslint
 * Configuration file with dotenv
 * Easy documentation with apidocjs
 * Error reporting with bugsnag

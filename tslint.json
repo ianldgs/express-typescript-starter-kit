@@ -1,0 +1,37 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+	],
+	"linterOptions": {
+		"exclude": [
+			"node_modules/**"
+		]
+	},
+    "jsRules": {},
+    "rules": {
+		"no-console": false,
+		"arrow-parens": false,
+		"semicolon": [true, "never"],
+		"indent": [true, "spaces", 2],
+		"quotemark": [true, "single"],
+		"member-ordering": false,
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "any",
+				"named-imports-order": "any",
+				"grouped-imports": true
+			}
+		],
+		"object-literal-sort-keys": false,
+		"trailing-comma": [
+			true, 
+			{
+				"multiline": "always",
+				"singleline": "never"
+			}
+		]
+	},
+    "rulesDirectory": []
+}
