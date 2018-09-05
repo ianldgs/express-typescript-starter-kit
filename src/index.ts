@@ -75,7 +75,7 @@ app.set('port', port)
 
 // TODO: allow config to set either http or https
 const server = new HttpServer(app)
-server.timeout = parseInt(process.env.TIMEOUT_SECONDS, 10) * 1000 || ONE_MINUTE
+server.timeout = parseInt(process.env.TIMEOUT_SECONDS!, 10) * 1000 || ONE_MINUTE
 
 server.listen(port, () => {
     const addr = server.address()
