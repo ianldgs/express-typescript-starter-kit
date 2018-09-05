@@ -18,7 +18,7 @@ process.on('unhandledRejection', (reason, p) => {
     console.log('Possibly Unhandled Rejection:', p, reason);
 });
 const app = express();
-//do not expose your infrastructure
+// do not expose your infrastructure
 app.disable('x-powered-by');
 if (process.env.BUGSNAG_KEY) {
     bugsnag.register(process.env.BUGSNAG_KEY);
@@ -29,36 +29,36 @@ if (process.env.NODE_ENV !== 'development') {
     app.use(basicAuth({
         challenge: true,
         users: {
-            //TODO: change this!
-            'admin': '123456',
-            'dev': '654321',
-            'client': '123654',
-        }
+            // TODO: change this!
+            admin: '123456',
+            dev: '654321',
+            client: '123654',
+        },
     }));
 }
 app.use(logger('tiny'));
-//accept requests with json body
-//this is the current default, for many web applications
-//if you use angular $http, this is how you will receive the data
+// accept requests with json body
+// this is the current default, for many web applications
+// if you use angular $http, this is how you will receive the data
 app.use(bodyParser.json());
-//accept requests with urlencoded body
-//this is the php/jquery default
-//many front-ends send the data in this form
+// accept requests with urlencoded body
+// this is the php/jquery default
+// many front-ends send the data in this form
 app.use(bodyParser.urlencoded({
-    //allow complex data structures
-    extended: true
+    // allow complex data structures
+    extended: true,
 }));
 app.use('/docs', express.static(`${__dirname}/../docs`));
 app.use('/', routes_1.default);
-//no route matched. place your routes before this
+// no route matched. place your routes before this
 app.use(http_not_found_1.default);
-//transform `new Error()` in http responses with error codes
+// transform `new Error()` in http responses with error codes
 app.use(http_error_handler_1.default);
 const port = utils_1.normalizePort(process.env.PORT || 8080);
 app.set('port', port);
-//TODO: allow config to set either http or https
+// TODO: allow config to set either http or https
 const server = new http_1.Server(app);
-server.timeout = parseInt(process.env.TIMEOUT_SECONDS) * 1000 || ONE_MINUTE;
+server.timeout = parseInt(process.env.TIMEOUT_SECONDS, 10) * 1000 || ONE_MINUTE;
 server.listen(port, () => {
     const addr = server.address();
     const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;

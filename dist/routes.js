@@ -74,10 +74,10 @@ router.get('/error', (req, res, next) => {
  * HTTP/1.1 503 Service Unavailable
  */
 router.get('/timeout', timeout('2s'), (req, res, next) => {
-    //if you don't call `res.end()` or `throw new Error()`
-    //before the specified timeout or default timeout
-    //a 500 error response will be displayed
+    // if you don't call `res.end()` or `throw new Error()`
+    // before the specified timeout or default timeout
+    // a 500 error response will be displayed
 });
-//default timeout. place your routes before this
+// default timeout. place your routes before this
 router.use(timeout('5s'));
 exports.default = router;
